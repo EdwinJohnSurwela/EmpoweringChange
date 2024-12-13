@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('wireframe_pictures/admin_dashboard.png'); /* Replace with your image file */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents tiling of the image */
+            color: white; /* Makes all text white by default */
+            
+        }
+
+        .dashboard-container {
+            position: relative;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: white; /* Ensures the heading text is white */
+        }
+
+        .admin-actions-container {
+    background-color: white; /* White background for the container */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Add padding inside the container */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    width: 100%; /* Full width for centering */
+    max-width: 500px; /* Limit the maximum width */
+    margin: 50px auto; /* Center the container horizontally and add margin on top */
+    color: black; /* Text inside the container should be black */
+    margin-top: 325px; /* Add more space on top to move the container down */
+}
+
+
+        .admin-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Add space between sections */
+        }
+
+        .form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and form vertically */
+    align-items: center; /* Center-align content */
+    width: 100%; /* Make form-group take full width */
+    max-width: 300px; /* Optional: Control the width of form-group */
+    margin: auto; /* Center the entire group */
+}
+
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center; /* Center-align text */
+        }
+
+        .custom-file-input {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: 50px; /* Adjust height as needed */
+        }
+
+        .custom-file-input input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; /* Hide the default input */
+            cursor: pointer;
+        }
+
+        .custom-file-input img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image fits perfectly */
+            pointer-events: none; /* Allows clicks to pass through to the input */
+        }
+
+        .form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and form vertically */
+    align-items: center; /* Center-align content */
+    width: 100%; /* Make form-group take full width */
+    max-width: 300px; /* Optional: Control the width of form-group */
+    margin: auto; /* Center the entire group */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Padding for proper sizing */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Prevent wrapping */
+    display: block; /* Make the button a block element */
+    text-align: center; /* Center-align text */
+    margin: 15px 0; /* Add vertical margin */
+    width: 100%; /* Make button match the parent width */
+    max-width: 200px; /* Optional: Restrict button width */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+        /* Logout button at the top-right */
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff4b5c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #e0434c;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <button class="logout-btn" onclick="window.location.href='profile.html'">Log Out</button>
+        
+        <!-- White container for admin actions -->
+        <div class="admin-actions-container">
+            <div class="admin-actions">
+                <!-- Export Section -->
+                <div class="form-group">
+                    <label for="export">Export Data:</label>
+                    <form id="export" action="export.php" method="POST">
+                        <button type="submit">Export to Excel</button>
+                    </form>
+                </div>
+
+                <!-- Import Section -->
+                <div class="form-group">
+                    <label for="import">Import Data:</label>
+                    <form id="import" action="import.php" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file-input">
+                            <input type="file" name="import_file" accept=".xls,.xlsx" required>
+                            <img src="pictures/upload_button_adminDashboard.png" alt="Upload"> <!-- Replace with your image file -->
+                        </div>
+                        <button type="submit">Import from Excel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

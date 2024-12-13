@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Existing styles */
+    .profile-item {
+        position: relative;
+    }
+
+    .profile-options {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        z-index: 10;
+    }
+
+    .profile-item:hover .profile-options {
+        display: block;
+    }
+
+    .profile-options a {
+        color: white;
+        padding: 10px;
+        display: block;
+        text-decoration: none;
+    }
+
+    .profile-options a:hover {
+        background-color: black;
+    }
+
+    .form-container, .dashboard-container {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    h2 {
+        margin: 0 0 20px;
+        text-align: center;
+        color: white;
+        font-size: 24px;
+    }
+
+    h3 {
+        text-align: center;
+        color: white;
+        font-size: 20px;
+    }
+
+    li {
+        color: white;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #444;
+        color: white;
+        transition: border-color 0.3s;
+    }
+
+    input:focus {
+        border-color: black;
+        outline: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: black
+        }
+
+    .error {
+        color: #E55451;
+        text-align: center;
+    }
+
+    .forgot-password {
+        text-align: center;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .forgot-password a {
+        color: #E55451;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .signup-link {
+        text-align: center;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .signup-link a {
+        color: #E55451;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    /* Forgot Password Modal */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    .popup-content {
+        background-color: #444;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        color: white;
+    }
+
+    .popup h2 {
+        text-align: center;
+    }
+
+    .popup button {
+        background-color: blue;
+        margin-top: 10px;
+    }
+
+    .popup button:hover {
+        background-color: lightblue;
+    }
+
+    .popup a {
+        color: #E55451;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+<body>
+  <!-- NAV BAR -->
+  <section class="headerProfile">
+    <nav>
+        <a href="main.html"><img src="wireframe_pic2/logo.png" alt="Logo of Empowering Change: Unite to Fight Poverty"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="main.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="blog.html">BLOG</a></li>
+                <li><a href="donation.html">SUPPORT HUB</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li class="profile-item">
+                    <a class="active" href="#">PROFILE</a>
+                    <div class="profile-options">
+                        <a href="javascript:void(0);" onclick="toggleForms('user', 'login')">LOG IN</a>
+                        <a href="javascript:void(0);" onclick="toggleForms('user', 'signup')">SIGN UP</a>
+                        <a href="javascript:void(0);" onclick="toggleForms('admin', 'login')">ADMIN</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+<!-- User Login -->
+<div class="UserLogin">
+    <div id="user-login-form" class="form-container">
+        <h2>User Login</h2>
+        <form action="auth.php" method="POST">
+            <input type="email" name="email" placeholder="Username (Email)" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" name="login">Login</button>
+        </form>                
+        <p id="user-error-message" class="error"></p>
+        <p class="forgot-password"><a href="javascript:void(0);" onclick="openForgotPasswordPopup()">Forgot Password?</a></p>
+        <p class="signup-link">Don't have an account? <a href="javascript:void(0);" onclick="toggleForms('user', 'signup')">Sign Up</a></p>
+    </div>
+
+    <div id="user-dashboard" class="dashboard-container" style="display: none;">
+        
+    </div>
+</div>
+
+<!-- Forgot Password Popup -->
+<div id="forgot-password-popup" class="popup">
+    <div class="popup-content">
+        <h2>Reset Password</h2>
+        <form action="auth.php" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" name="reset_password">Send Reset Link</button>
+        </form>        
+        <p id="popup-message" class="error"></p>
+        <p><a href="javascript:void(0);" onclick="closeForgotPasswordPopup()">Close</a></p>
+    </div>
+</div>
+
+<!-- Admin Login -->
+<div class="AdminLogin" style="display: none;">
+    <div id="admin-login-form" class="form-container">
+        <h2>Admin Login</h2>
+        <!-- Action to auth.php with admin_login field -->
+        <form action="auth.php" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <!-- Add hidden field to distinguish admin login -->
+            <input type="hidden" name="admin_login" value="1">
+            <button type="submit" name="login">Login</button>
+        </form>
+        <p id="admin-error-message" class="error"></p>
+        <p class="forgot-password"><a href="javascript:void(0);" onclick="openAdminForgotPasswordPopup()">Forgot Password?</a></p>
+    </div>
+</div>
+
+<!-- Admin Forgot Password Popup -->
+<div id="admin-forgot-password-popup" class="popup">
+    <div class="popup-content">
+        <h2>Reset Admin Password</h2>
+        <form action="auth.php" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" name="reset_password">Send Reset Link</button>
+        </form>        
+        <p id="admin-popup-message" class="error"></p>
+        <p><a href="javascript:void(0);" onclick="closeAdminForgotPasswordPopup()">Close</a></p>
+    </div>
+</div>
+
+    <div id="admin-dashboard" class="dashboard-container" style="display: none;">
+        <h2>Admin Dashboard</h2>
+        <button onclick="logout('admin')">Logout</button>
+        <h3>User Management</h3>
+        <ul id="admin-user-list"></ul>
+        <input type="text" id="admin-new-user" placeholder="Add new user">
+        <button onclick="addAdminUser()">Add User</button>
+    </div>
+</div>
+
+<!-- Sign Up Form -->
+<div id="user-signup-form" class="form-container" style="display: none;">
+    <h2>Sign Up</h2>
+    <form action="signup.php" method="POST">
+        <input type="text" id="first-name" name="first_name" placeholder="First Name" required>
+        <input type="text" id="last-name" name="last_name" placeholder="Last Name" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="date" id="dob" name="dob" required>
+        <input type="text" id="phone" name="phone" placeholder="Phone Number">
+        <input type="password" id="signup-password" name="password" placeholder="Password" required>
+        <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+    </form>    
+    <p id="signup-error-message" class="error"></p>
+    <p class="signup-link">Already have an account? <a href="javascript:void(0);" onclick="toggleForms('user', 'login')">Log In</a></p>
+</div>
+</section>
+
+
+<script>
+    const users = [
+        { username: 'user@example.com', password: 'userpassword', role: 'user' },
+        { username: 'admin@example.com', password: 'adminpassword', role: 'admin' }
+    ];
+
+
+    function openAdminForgotPasswordPopup() {
+    document.getElementById('admin-forgot-password-popup').style.display = 'flex';
+}
+
+function closeAdminForgotPasswordPopup() {
+    document.getElementById('admin-forgot-password-popup').style.display = 'none';
+}
+
+function resetAdminPassword() {
+    const email = document.getElementById('reset-email').value;
+    const user = users.find(u => u.username === email && u.role === 'admin');
+    
+    if (user) {
+        // Simulate sending reset link
+        alert("Password reset link has been sent to your email.");
+        closeAdminForgotPasswordPopup();
+    } else {
+        document.getElementById('admin-popup-message').textContent = "Email not found.";
+        document.getElementById('admin-popup-message').style.display = 'block';
+    }
+}
+
+    function toggleForms(role, formType) {
+        const userLogin = document.querySelector('.UserLogin');
+        const adminLogin = document.querySelector('.AdminLogin');
+        const signupForm = document.getElementById('user-signup-form');
+        const userLoginForm = document.getElementById('user-login-form');
+        const adminLoginForm = document.getElementById('admin-login-form');
+        const userDashboard = document.getElementById('user-dashboard');
+        const adminDashboard = document.getElementById('admin-dashboard');
+
+        // Reset forms and dashboards
+        userLogin.style.display = 'none';
+        adminLogin.style.display = 'none';
+        signupForm.style.display = 'none';
+        userDashboard.style.display = 'none';
+        adminDashboard.style.display = 'none';
+
+        if (formType === 'login') {
+            if (role === 'user') {
+                userLogin.style.display = 'block';
+            } else if (role === 'admin') {
+                adminLogin.style.display = 'block';
+            }
+        } else if (formType === 'signup') {
+            signupForm.style.display = 'block';
+        }
+    }
+
+    function login(role) {
+    const username = role === 'user' ? document.getElementById('user-username').value : document.getElementById('admin-username').value;
+    const password = role === 'user' ? document.getElementById('user-password').value : document.getElementById('admin-password').value;
+    const errorMessage = role === 'user' ? document.getElementById('user-error-message') : document.getElementById('admin-error-message');
+    
+    const user = users.find(u => u.username === username && u.password === password && u.role === role);
+
+    if (user) {
+        // Hide login form and show dashboard
+        if (role === 'user') {
+            document.getElementById('user-login-form').style.display = 'none';
+            document.getElementById('user-dashboard').style.display = 'block';
+            // Highlight the "Profile" link in the navbar
+            highlightProfileLink();
+        } else if (role === 'admin') {
+            document.getElementById('admin-login-form').style.display = 'none';
+            document.getElementById('admin-dashboard').style.display = 'block';
+        }
+        errorMessage.style.display = 'none';
+    } else {
+        errorMessage.textContent = 'Invalid credentials';
+        errorMessage.style.display = 'block';
+    }
+}
+
+function highlightProfileLink() {
+    const profileLink = document.querySelector('.profile-item a');
+    // Remove 'active' class from all other navigation items
+    const navItems = document.querySelectorAll('.nav-links ul li a');
+    navItems.forEach(item => item.classList.remove('active'));
+
+    // Add 'active' class to the "Profile" link
+    profileLink.classList.add('active');
+}
+
+
+   function signup(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;
+    const dob = document.getElementById('dob').value;
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('signup-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const errorMessage = document.getElementById('signup-error-message');
+
+    // Validate passwords match
+    if (password !== confirmPassword) {
+        errorMessage.textContent = "Passwords don't match.";
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    // Save user details (example; you might send these to your backend)
+    users.push({
+        username: email, // Use email as username
+        password,
+        role: 'user'
+    });
+
+    errorMessage.style.display = 'none';
+    alert("Sign Up successful! You can now log in.");
+    toggleForms('user', 'login');
+}
+
+
+    function logout(role) {
+        if (role === 'user') {
+            document.getElementById('user-dashboard').style.display = 'none';
+            document.getElementById('user-login-form').style.display = 'block';
+        } else if (role === 'admin') {
+            document.getElementById('admin-dashboard').style.display = 'none';
+            document.getElementById('admin-login-form').style.display = 'block';
+        }
+    }
+
+    // Forgot Password Functionality
+    function openForgotPasswordPopup() {
+        document.getElementById('forgot-password-popup').style.display = 'flex';
+    }
+
+    function closeForgotPasswordPopup() {
+        document.getElementById('forgot-password-popup').style.display = 'none';
+    }
+
+    function resetPassword() {
+        const email = document.getElementById('reset-email').value;
+        const user = users.find(u => u.username === email);
+        
+        if (user) {
+            // Simulate sending reset link
+            alert("Password reset link has been sent to your email.");
+            closeForgotPasswordPopup();
+        } else {
+            document.getElementById('popup-message').textContent = "Email not found.";
+            document.getElementById('popup-message').style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

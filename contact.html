@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1IVn8SI8l_4l3gmlycZ1CDc2RHS9MOCCaWQ&s">
+    <title>CONTACT | Unite to Fight Poverty</title>
+    <script>
+        function confirmAdmin() {
+            const isAdmin = confirm("Are you an admin?");
+            if (isAdmin) {
+                window.location.href = '/admin.html'; // Redirect to admin page
+            } else {
+                alert("You do not have permission to access the admin page.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- NAV BAR -->
+    <section class="headerContact">
+      <nav>
+        <a href="main.html"><img src="wireframe_pic2/logo.png" alt="Logo of Empowering Change: Unite to Fight Poverty"></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="main.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="donation.html">SUPPORT HUB</a></li>
+            <li><a class="active" href="contact.html">CONTACT</a></li>
+            <li><a href="profile.html" class="dropdown">PROFILE</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+    </section>
+
+    <main>
+     <!-- Contact Content Sections with Backgrounds -->
+     <section id="contact-content2" class="background-cover contact-content2"></section>
+     <section id="contact-content3" class="background-cover contact-content3">
+        <div class="feedback-container">
+            <h2>Your Feedback</h2>
+            <form action="#" method="post">
+                <div class="input-group" style="display: flex; justify-content: space-between; gap: 20px;">
+                    <div style="width: 48%;">
+                        <label for="first-name">First Name *</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div style="width: 48%;">
+                        <label for="last-name">Last Name *</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+    
+            <div class="social-media">
+                <p>Follow Us</p>
+                <p>The easiest way to link to our social media pages</p>
+                <a href="https://facebook.com/fightpovertybsu" class="social-link">
+                    <img src="wireframe_pic2/icons8-facebook-48.png" alt="Facebook">
+                </a>
+                <a href="https://instagram.com/fightpoverty_bsu" class="social-link">
+                    <img src="wireframe_pic2/icons8-instagram-48.png" alt="Instagram">
+                </a>
+                <a href="https://twitter.com/fightpoverty_bsu" class="social-link">
+                    <img src="wireframe_pic2/icons8-twitter-48.png" alt="Twitter">
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    </main>
+</body>
+</html>

@@ -1,0 +1,1167 @@
+/* Basic resets */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------
+LANDING PAGE
+------------------------------------------------------------------------------------------------------------------------------------*/
+.landing-page {
+background-image: url(wireframe_pic2/landingpage.png); /* Add your background image here */
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.button {
+  padding: 10px 20px; /* Responsive padding */
+  background-color: black;
+  border: 1px solid #fff;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1rem; /* Responsive font size */
+  display: inline-block; /* Keeps button inline with text alignment */
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------------
+NAV BAR
+------------------------------------------------------------------------------------------------------------------------------------*/
+
+.header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(wireframe_pic2/2.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.header1 {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(wireframe_pictures/welcome_user.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.Visit {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #ffe9a5;
+  border-radius: 25px;
+  padding: 12px 34px;
+  font-size: 15px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  margin-top: 52%;
+  font-weight: bold;
+}
+
+.Visit:hover {
+  border: 1px solid #0a300b;
+  background: gainsboro;
+  color: black;
+  transition: 0.5s;
+}
+
+.maps {
+  margin-left: 630px;
+}
+
+
+.header a.active {
+  color: #ffe9a5; 
+  font-weight: bold;
+}
+
+.headerAbout {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(wireframe_pic2/6.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.headerAbout a.active {
+  color: #ffe9a5; 
+  font-weight: bold;
+}
+
+.headerBlog {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(wireframe_pic2/12.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.headerBlog a.active {
+  color: #ffe9a5; 
+  font-weight: bold;
+}
+
+.headerDonation {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(wireframe_pic2/21.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.headerDonation a.active {
+  color: #ffe9a5; 
+  font-weight: bold;
+}
+
+.headerContact {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(wireframe_pic2/28.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.headerContact a.active {
+  color: #ffe9a5; 
+  font-weight: bold;
+}
+
+.headerProfile {
+  min-height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  background-image: url(wireframe_pic2/EMPOWER\ CHANGE\ \(7\).png);
+  cursor: pointer;
+}
+
+.headerProfile a.active {
+  color: #ffe9a5; 
+  font-weight: bold;
+}
+
+.header h1 {
+  font-family: 'Cookie', cursive;
+  font-weight: normal;
+  font-size: 80px;
+}
+
+nav {
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* nav a img:hover {
+  transition: 0.3s;
+  box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.876);
+} */
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+
+.nav-links ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.nav-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav-links ul li a:hover {
+  color: #f8e2b2;
+}
+
+.nav-links ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  /* background: #20721c; */
+  display: block;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.nav-links ul li:hover::after {
+  color: #f8e2b2;
+  width: 100%;
+}
+
+nav .fa {
+  display: none;
+}
+
+@media(max-width: 700px) {
+  .text-box {
+    font-size: 20px;
+  }
+
+  .nav-links ul li {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    background: #0a300b;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2;
+  }
+
+  nav .fa {
+    display: block;
+    color: #fff;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .nav-links ul {
+    padding: 30px;
+  }
+}
+
+
+
+
+/* Full-screen background sections */
+.background-cover {
+  height: 100vh;
+  width: 100%;
+  display: none; /* Initially hidden */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+} 
+
+/* Landing page styling */
+#landing-page {
+  background-color: #333;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-content button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Background images for Main Content Sections */
+.main-content1 {
+  background-image: url('wireframe_pic2/3.png');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------
+EXPERIENCE
+------------------------------------------------------------------------------------------------------------------------------------*/
+.experience {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.row {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+}
+
+.exp-col {
+  flex-basis: 31%;
+  background: #363535;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition: transform 0.3s ease-in-out;
+  border: 1px solid #ffe9a5;
+}
+
+.exp-col h2 {
+  margin-top: 5%;
+  color: white;
+  margin-bottom: 5%;
+}
+
+.exp-col img {
+  width: 100%;
+  height: auto; /* Changed to auto for responsive scaling */
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ffe9a5;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.exp-col:hover {
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+}
+
+@media(max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------
+MAIN CONTENT2
+------------------------------------------------------------------------------------------------------------------------------------*/
+.main-content2 {
+  background-image: url(wireframe_pic2/4.png);
+  background-size: cover; /* Ensure the background image covers the section */
+  background-position: center; /* Center the background image */
+  color: white; /* Text color for readability */
+  display: flex; /* Flexbox to align content */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  padding: 20px; /* Padding for some breathing room */
+}
+
+
+
+.main-content3 {
+  background-image: url(wireframe_pic2/5.png);
+  background-position: center;
+  background-size: cover;
+  position: relative; 
+}
+
+.main-content4 {
+  background-image: url(wireframe_pictures/6.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/* Background images for About Content Sections */
+.about-content1 {
+  background-image: url(wireframe_pic2/7.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.about-content2 {
+  background-image: url(wireframe_pic2/EMPOWER\ CHANGE\ \(8\).png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.about-content3 {
+  background-image: url(wireframe_pic2/9.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.about-content4 {
+  background-image: url(wireframe_pic2/10.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.about-content5 {
+  background-image: url(wireframe_pic2/11.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: 700px;
+}
+
+.team-section {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.team-section h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.team-member:hover {
+  transform: translateY(-10px); /* Slight lift effect */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid white;
+  transition: transform 0.3s ease; /* Smooth transition for image on hover */
+}
+
+.team-member:hover img {
+  transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+.member-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.member-info p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 3px;
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-member img {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+
+
+
+/* Background images for Blog Content Sections */
+/* General Reset */
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Blog Content Section */
+.blog-content1 {
+  background-image: url(wireframe_pic2/13.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  height: 120vh; /* Full height */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#iframe-container {
+  width: 100%; /* Set the width as needed */
+  height: 500px; /* Set the height as needed */
+  overflow: hidden; /* Hide any overflow */
+}
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove the border */
+}zs
+
+
+/* Card Container */
+.card-container {
+  display: inline-flex;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 3%;
+}
+
+/* Card Styles */
+.card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s; /* Add transition for hover effect */
+}
+
+
+/* Post Image */
+.post-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card Content */
+.card-content {
+  padding: 15px;
+}
+
+.post-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-date, .comments-count, .views-count, .footer-note {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.post-subtitle {
+  font-size: 1em;
+  color: #ccc;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.post-description {
+  font-size: 0.9em;
+  color: #bbb;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Card Footer */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #333;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  color: #f22;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* Comments Section */
+.comments-section input {
+  width: 80%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  outline: none;
+}
+
+.comment {
+  margin-top: 5px;
+  color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+      width: 90%; /* Adjust card width for smaller screens */
+  }
+}
+
+
+.blog-content2 {
+  background-image: url(wireframe_pic2/EMPOWER\ CHANGE\ \(9\).png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.blog-content3 {
+  background-image: url(wireframe_pic2/15.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.blog-content4 {
+  background-image: url(wireframe_pic2/16.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.blog-content5 {
+  background-image: url(wireframe_pic2/17.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.blog-content6 {
+  background-image: url(wireframe_pic2/18.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.blog-content7 {
+  background-image: url(wireframe_pic2/19.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.blog-content8 {
+  background-image: url(wireframe_pic2/EMPOWER\ CHANGE\ \(10\).png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.story-box {
+  width: 500px;
+  height: 50%;
+  background-color: #fff;
+  border: 2px solid #8e44ad; /* Purple border */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: x-large;
+}
+
+.profile-icon {
+  width: 60px;
+  height: 60px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8-sy0Y-97bsW5BLoIHWPMIUN-AYMvT9wJrQ&s);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: bold;
+  color: #333;
+}
+
+.public-label {
+  font-size: 0.8em;
+  color: #777;
+  text-align: left;
+}
+
+textarea {
+  width: 450px;
+  height: 50%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.5em;
+  resize: none;
+  outline: none;
+  color: #555;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+}
+
+textarea::placeholder {
+  color: #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Background images for Donation Content Sections */
+.donation-content1 {
+  background-image: url(wireframe_pictures/25.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.donation-content2 {
+  background-image: url(wireframe_pictures/26.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.donation-content3 {
+  background-image: url(wireframe_pictures/27.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.donation-content5 {
+  background-image: url(wireframe_pic2/27.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.donation-section-5 {
+  background-image: url('wireframe_pic2/EMPOWER CHANGE (12).png'); /* Corrected image URL */
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+  color: #fff;
+  text-align: center;
+  min-height: 100vh; /* Ensures section covers full screen */
+}
+
+.donation-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #363535;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-top: 5%; /* Reduced margin-top for better alignment */
+  border: 1px solid #ffe9a5;
+  background-color: rgba(54, 53, 53, 0.8); /* Slight transparency for better readability */
+  margin-top: 10%;
+}
+
+.donation-section-5 h1, .donation-section-5 h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.donation-section-5 p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.donation-form-section {
+  text-align: left;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+button.donate-button {
+  background-color: #ffe9a5;
+  color: black;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button.donate-button:hover {
+  background-color: #ffe9a9;
+}
+
+#gcash-qr-code {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#gcash-qr-code img {
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .donation-container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  h1, h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  input, select {
+    padding: 10px;
+  }
+
+  button.donate-button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .donation-container {
+    padding: 15px;
+    margin-top: 30px;
+  }
+
+  h1, h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  input, select {
+    padding: 8px;
+  }
+
+  button.donate-button {
+    font-size: 14px;
+  }
+}
+
+
+/* Background images for Support Hub Content Sections */
+.support_hub-content1 {
+  background-image: url(wireframe_pic2/22.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.support_hub-content2 {
+  background-image: url(wireframe_pic2/23.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.support_hub-content3 {
+  background-image: url(wireframe_pic2/24.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.support_hub-content4 {
+  background-image: url(wireframe_pic2/25.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.support_hub-content5 {
+  background-image: url(wireframe_pic2/26.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .info {
+      margin-right: 0; /* Remove margin on smaller screens */
+      margin-bottom: 20px; /* Add some space between the sections */
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: black;
+}
+
+.modal p {
+  color: black;
+}
+
+.close {
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+  color: black;
+}
+
+
+/* Background images for Contact Content Sections */ 
+.contact-content2 {
+  background-image: url(wireframe_pic2/29.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+#contact-content3 {
+  background-image: url(wireframe_pic2/EMPOWER\ CHANGE\ \(13\).png); 
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+}
+
+.feedback-container {
+  background-color: #363535;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 1px solid #ffe9a5;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin: 10px 0;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+.submit-btn {
+  background-color: #ffe9a5;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background-color: #ffe9a9;
+}
+
+.social-media {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.social-media p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.social-link {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-link img {
+  width: 40px;
+  height: 40px;
+}
+
+
+/* Dropdown Menu Styles */
+.profile-options {
+  display: none; /* Initially hide the dropdown */
+  position: absolute; /* Position it relative to the profile item */
+  background-color: black; /* White background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  z-index: 1; /* Ensure it appears above other content */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Padding around the options */
+}
+
+.profile-options a {
+  display: block; /* Make links block elements */
+  padding: 10px 15px; /* Padding around links */
+  color: #007BFF; /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.profile-options a:hover {
+  background-color: #e7f0ff; /* Light blue background on hover */
+  color: black; /* Darker color on hover */
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------
+Profile.PHP
+-----------------------------------------------------------------------------------------------------------------------------------*/
+.welcome-user {
+  background-image: url(wireframe_pictures/welcome_user.png);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  /* Add explicit dimensions */
+  width: 100%; /* Take full width of the parent container */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Reset any default margins */
+  padding: 0; /* Reset any default paddings */
+}
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------------
+FOOTER
+-----------------------------------------------------------------------------------------------------------------------------------*/
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-down-about h4 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icons a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.icons a:hover {
+  color: darkblue;
+}
